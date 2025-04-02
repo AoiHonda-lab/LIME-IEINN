@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: lime_ieinn
+Version: 0.1
+Summary: LIME+IEINN
+Author-email: Your Name <you@example.com>
+Requires-Dist: numpy
+Requires-Dist: scikit-learn
+Requires-Dist: scikit-image
