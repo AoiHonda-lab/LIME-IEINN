@@ -25,6 +25,7 @@ pip install -e .
 See `examples/explain_inception_net_v3.ipynb`
 
 In this case, the images used in the experiment must be installed from the following URL.
--`https://pixabay.com/photos/panda-zoo-nature-zoo-animals-wild-952257/`
--`https://pixabay.com/photos/hammerhead-shark-shark-dive-5024656/`
--`https://pixabay.com/photos/hammerhead-shark-shark-underwater-298238/`
+
+- `https://pixabay.com/photos/panda-zoo-nature-zoo-animals-wild-952257/`
+- `https://pixabay.com/photos/hammerhead-shark-shark-dive-5024656/`
+- `https://pixabay.com/photos/hammerhead-shark-shark-underwater-298238/`
