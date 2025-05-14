@@ -1,3 +1,4 @@
+<img src="写真URL" width="サイズ">
 # LIME + IEINN
 
 This repository provides an extended version of LIME that replaces the linear surrogate model with an interpretable neural network called **IEINN** (Interaction-Enhanced Interpretable Neural Network).
@@ -15,3 +16,6 @@ This implementation is designed to improve the explanation quality of LIME by ca
 git clone https://github.com/yourusername/lime_ieinn.git
 cd lime_ieinn
 pip install -e .
+```
+
+## Usage
