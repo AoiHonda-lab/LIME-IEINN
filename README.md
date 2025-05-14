@@ -22,3 +22,4 @@ pip install -e .
 ```
 
 ## Usage
+See `examples/explain_inception_net_v3.ipynb`
