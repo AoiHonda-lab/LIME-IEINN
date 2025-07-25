@@ -16,7 +16,7 @@ This implementation is designed to improve the explanation quality of LIME by ca
 ## Installation
 
 ```bash
-git clone https://github.com/yourusername/lime_ieinn.git
+git clone https://github.com/AoiHonda-lab/lime_ieinn.git
 cd lime_ieinn
 pip install -e .
 ```
