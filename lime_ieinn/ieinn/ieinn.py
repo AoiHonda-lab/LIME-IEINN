@@ -51,8 +51,9 @@ class IE(nn.Module):
         # Layer Definition
         # PreprocessingLayer
         preprocessing_cls = getattr(preprocessing_layer, self.preprocessing)
-        for i in range(0,self.columns_num):
-            exec("self.preprocessing" + str(i+1) + "= preprocessing_cls(dataloader.dataset, "+str(i)+")")
+        self.preprocessors = []
+        for i in range(self.columns_num):
+            self.preprocessors.append(preprocessing_cls(dataloader.dataset, i))
         #IEILayer
         iei_cls = getattr(n_op, self.narray_op)
         self.iei = iei_cls(self.additivity_order)
@@ -64,13 +65,14 @@ class IE(nn.Module):
             
     def forward(self, x):
         columns_num = x.size()[1]
-        self.nodes=torch.tensor(()).to(self.device)
+        self.nodes = torch.tensor(()).to(self.device)
 
-        #preprocessing
-        for i in range(0, columns_num):
-            exec("x" + str(i+1) + "= self.preprocessing" + str(i+1) + "(x[:," + str(i) + "].view(x.size()[0],1))")
-            exec("x_sig" + str(i+1) + "= torch.sigmoid(x" + str(i+1) + ")")
-            exec("self.nodes=torch.cat((self.nodes,x_sig" + str(i+1) + "),dim=1)")
+        x_sig_list = []
+        for i in range(columns_num):
+            xi = self.preprocessors[i](x[:, i].view(x.size(0), 1))
+            x_sig = torch.sigmoid(xi)
+            x_sig_list.append(x_sig)
+        self.nodes = torch.cat(x_sig_list, dim=1)
         #iei
         hidden=self.iei(self.nodes)
         #output
